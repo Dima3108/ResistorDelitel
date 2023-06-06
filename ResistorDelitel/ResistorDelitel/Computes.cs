@@ -8,6 +8,12 @@ namespace ResistorDelitel
 {
     public class Computes
     {
+        /// <summary>
+        /// Расчет фактического выходного напряжения
+        /// </summary>
+        /// <param name="inpute_voltage">входное напряжение</param>
+        /// <param name="resistors">параметры резисторов</param>
+        /// <returns>фактическое выходное напряжение</returns>
         public static double ComputeOutputeVoltage(double inpute_voltage, Resistors resistors)
         {
             double coef = (double)((double)resistors.R2.Resistance / (double)(resistors.R1.Resistance + resistors.R2.Resistance));
@@ -21,11 +27,26 @@ namespace ResistorDelitel
             double fact_output = ComputeOutputeVoltage(voltages.InputeVoltage, resistors);
             return fact_output-voltages.OutputeVoltage;
         }
+        /// <summary>
+        /// Сравнение эталонного и полученного результата
+        /// </summary>
+        /// <param name="outpute_volt">эталонное значение</param>
+        /// <param name="fact_voltage">фактическое значение</param>
+        /// <returns>резница между эталонным и фактическим значением (
+        /// <c>стремится к нулю при стремление  fact_voltage к output_voltage</c>)</returns>
         public static double ApproximationEstimate(double outpute_volt,double fact_voltage)
         {
             double c = outpute_volt / fact_voltage;
             return c - 1.0;
         }
+        /// <summary>
+        /// Вычисление сопротивления второго резистора исходя из значения первого
+        /// </summary>
+        /// <param name="R1">значение сопротивления первого резистора</param>
+        /// <param name="voltages">пара входного и выходного <c>(эталонного) значений напряжений</c></param>
+        /// <param name="w">коэффициент делителя <c>Не используется в данный момент</c></param>
+        /// <param name="init_R2">предпологаемое значение сопротивления</param>
+        /// <returns>значение сопротивления резистора R2</returns>
         public static long ComputeR2(long R1,Voltages voltages,double w,long init_R2 = 1)
         {
             /*var r1 = new Resistor(R1);
@@ -94,9 +115,16 @@ namespace ResistorDelitel
             }*/
             return R2_1;
         }
+        /// <summary>
+        /// Вычисление сопротивлений резисторов
+        /// </summary>
+        /// <param name="voltages">пара входного и выходного <c>(эталонного) значений напряжений</c></param>
+        /// <param name="min_resistance">минимальное значение сопротивления резистора</param>
+        /// <param name="max_resistance">максимальное значение сопротивления резистора</param>
+        /// <returns>Параметры выходных резисторов</returns>
         public static Resistors ComputeR1R2(Voltages voltages,long min_resistance=1,long max_resistance=1000000)
         {
-            double w = voltages.OutputeVoltage / voltages.InputeVoltage;
+            double w = voltages.OutputeVoltage / voltages.InputeVoltage;//коэффициент делителя
             long min_r = min_resistance;
             long r2, r2_cur;
             double delta, delta_cur;

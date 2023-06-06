@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Q:\\visual studio\\2022\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj": {}
+    "Q:\\github_repo\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj": {}
   },
   "projects": {
-    "Q:\\visual studio\\2022\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj": {
+    "Q:\\github_repo\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Q:\\visual studio\\2022\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj",
+        "projectUniqueName": "Q:\\github_repo\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj",
         "projectName": "ResistorDelitel",
-        "projectPath": "Q:\\visual studio\\2022\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj",
+        "projectPath": "Q:\\github_repo\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel.csproj",
         "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-        "outputPath": "Q:\\visual studio\\2022\\ResistorDelitel\\ResistorDelitel\\obj\\",
+        "outputPath": "Q:\\github_repo\\ResistorDelitel\\ResistorDelitel\\ResistorDelitel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
