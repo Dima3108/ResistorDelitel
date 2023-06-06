@@ -34,10 +34,25 @@ namespace ResistorDelitel
         /// <param name="fact_voltage">фактическое значение</param>
         /// <returns>резница между эталонным и фактическим значением (
         /// <c>стремится к нулю при стремление  fact_voltage к output_voltage</c>)</returns>
-        public static double ApproximationEstimate(double outpute_volt,double fact_voltage)
+        public static double ApproximationEstimate(double outpute_volt,double fact_voltage,int mode=0)
         {
-            double c = outpute_volt / fact_voltage;
+            switch (mode)
+            {
+                case 1:
+                    /*
+                     измеряет разницу как модуль разности отношений фактического к эталонному и эталонного к фактическому ,
+                    разница квадратично* увеличивается либо уменьшается 
+                    */
+                    return Math.Abs((outpute_volt/fact_voltage)-(fact_voltage/outpute_volt));
+                default:
+                    /*
+                     * измеряет разницу как отношение фактического к эталонному , вычитаемая 1 
+                     * приближает результат к нулю при стремление отношения к 1.
+                     */
+                    double c = outpute_volt / fact_voltage;
             return c - 1.0;
+            }
+            
         }
         /// <summary>
         /// Вычисление сопротивления второго резистора исходя из значения первого
